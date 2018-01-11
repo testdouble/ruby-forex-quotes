@@ -14,7 +14,6 @@ ruby-forex-quotes is a Ruby Library for fetching realtime forex quotes
 - [License / Terms](#license-and-terms)
 
 ## Requirements
-* Ruby
 * An API key which you can obtain for free at http://1forge.com/forex-data-api
 
 ## Installation
@@ -33,63 +32,26 @@ client = ForexDataClient.new('YOUR_API_KEY')
 ### Get the list of available symbols:
 
 ```ruby
-client = ForexDataClient.new('YOUR_API_KEY')
-#Returns an array of symbols, eg: ['EURUSD', 'GBPJPY']
 client.getSymbols
 ```
 ### Get quotes for specified symbols:
 ```ruby
-client = ForexDataClient.new('YOUR_API_KEY')
-
-=begin
-[
-  {
-    "symbol"=>"EURUSD", 
-    "timestamp"=>1499461058, 
-    "price"=>1.14008
-  }, 
-  {
-    "symbol"=>"GBPJPY", 
-    "timestamp"=>1499461058, 
-    "price"=>146.787339
-  }
-]
-=end
 client.getQuotes(["EURUSD", "GBPJPY"])
 ```
 
 ### Convert from one currency to another:
 ```ruby
-client = ForexDataClient.new('YOUR_API_KEY')
-=begin
-{
-  "value" => 114.008, 
-  "text" => "100 EUR is worth 114.008 USD", 
-  "timestamp" => 1499605679
-}
-=end
 client.convert('EUR', 'USD', 100)
 ```
 
 
 ### Check if the market is open:
 ```ruby
-client = ForexDataClient.new('YOUR_API_KEY')
-#{"market_is_open" => false}
 client.getMarketStatus
 ```
 
 ### Check your usage / quota limit:
 ```ruby
-client = ForexDataClient.new('YOUR_API_KEY')
-=begin
-{
-  "quota_used" => 6521, 
-  "quota_limit" => "unlimited", 
-  "quota_remaining" => "unlimited", 
-  "hours_until_reset" => 15
-}
-=end
 client.quota
 ```
 
