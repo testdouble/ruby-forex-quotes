@@ -1,6 +1,11 @@
 require 'http'
 require 'json'
 
+=begin
+  This library is provided without warranty under the MIT license
+  Created by Jacob Davis <jacob@1forge.com>
+=end
+
 class ForexDataClient
   def initialize(api_key)
     @api_key = api_key
