@@ -57,7 +57,7 @@ client.quota
 ```
 
 ## Contributing
-Thank you for considering contributing. Any issues, bug fixes, suggestions, improvements or help in any other way is always appreciated.  Please feel free to open an issue or create a pull request.
+Thank you for considering contributing! Any issues, bug fixes, suggestions, improvements or help in any other way is always appreciated.  Please feel free to open an issue or create a pull request.
 
 ## Support and Contact
 Please contact me at contact@1forge.com if you have any questions or requests.
