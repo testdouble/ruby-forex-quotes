@@ -1,4 +1,4 @@
-require 'http'
+require 'net/http'
 require 'json'
 
 =begin
@@ -12,7 +12,8 @@ class ForexDataClient
   end
 
   def fetch(api_call)
-    JSON.parse(HTTP.get("https://forex.1forge.com/1.0.2/" + api_call + "&api_key=" + @api_key))
+    one_forge_uri = URI("https://forex.1forge.com/1.0.2/" + api_call + "&api_key=" + @api_key)
+    JSON.parse(Net::HTTP.get(one_forge_uri))
   end
 
   def quota()
