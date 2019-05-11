@@ -19,14 +19,14 @@ ruby-forex-quotes is a Ruby Library for fetching realtime forex quotes
 
 ## Installation
 ```
-gem install forex_quotes
+gem 'forex_quotes', github: 'testdouble/ruby-forex-quotes'
 ```
 
 ## Usage
 
 ### Instantiate the client
 ```ruby
-#You can get an API key for free at 1forge.com
+# You can get an API key for free at 1forge.com
 client = ForexDataClient.new('YOUR_API_KEY')
 ```
 
@@ -37,12 +37,12 @@ client.getSymbols
 ```
 ### Get quotes for specified symbols:
 ```ruby
-client.getQuotes(["EURUSD", "GBPJPY"])
+client.getQuotes(["USDJPY"])
 ```
 
 ### Convert from one currency to another:
 ```ruby
-client.convert('EUR', 'USD', 100)
+client.convert('USD', 'JPY', 100)
 ```
 
 
@@ -55,12 +55,6 @@ client.getMarketStatus
 ```ruby
 client.quota
 ```
-
-## Contributing
-Thank you for considering contributing! Any issues, bug fixes, suggestions, improvements or help in any other way is always appreciated.  Please feel free to open an issue or create a pull request.
-
-## Support and Contact
-Please contact me at contact@1forge.com if you have any questions or requests.
 
 ## License and Terms
 This library is provided without warranty under the MIT license.
