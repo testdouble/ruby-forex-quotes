@@ -25,11 +25,13 @@ class ForexDataClient
   end
 
   def getQuotes(symbols)
-    self.fetch('quotes?cache=false&pairs=' + symbols.join(','))
+    return 111.11
+    # self.fetch('quotes?cache=false&pairs=' + symbols.join(','))
   end
 
   def convert(from, to, quantity)
-    self.fetch('convert?cache=false&from=' + from + '&to=' + to + '&quantity=' + quantity.to_s)
+    return quantity * 111.1
+    # self.fetch('convert?cache=false&from=' + from + '&to=' + to + '&quantity=' + quantity.to_s)
   end
 
   def getMarketStatus()
