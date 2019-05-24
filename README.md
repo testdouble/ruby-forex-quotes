@@ -32,7 +32,7 @@ client = ForexDataClient.new('YOUR_API_KEY')
 
 ### Get quotes for specified symbols:
 ```ruby
-client.getQuotes(["USDJPY"])
+client.get_quotes(["USDJPY"])
 ```
 
 ### Convert from one currency to another:

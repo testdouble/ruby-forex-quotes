@@ -8,7 +8,7 @@ class ForexDataClient
     @api_key = api_key
   end
 
-  def getQuotes(symbols)
+  def get_quotes(symbols)
     rates = {}
     symbols.map do |symbol|
       rates[symbol] = rate
