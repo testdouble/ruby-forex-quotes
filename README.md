@@ -30,11 +30,6 @@ gem 'forex_quotes', github: 'testdouble/ruby-forex-quotes'
 client = ForexDataClient.new('YOUR_API_KEY')
 ```
 
-### Get the list of available symbols:
-
-```ruby
-client.getSymbols
-```
 ### Get quotes for specified symbols:
 ```ruby
 client.getQuotes(["USDJPY"])
@@ -43,17 +38,6 @@ client.getQuotes(["USDJPY"])
 ### Convert from one currency to another:
 ```ruby
 client.convert('USD', 'JPY', 100)
-```
-
-
-### Check if the market is open:
-```ruby
-client.getMarketStatus
-```
-
-### Check your usage / quota limit:
-```ruby
-client.quota
 ```
 
 ## License and Terms

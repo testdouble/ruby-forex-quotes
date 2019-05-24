@@ -1,9 +1,6 @@
-require 'net/http'
-require 'json'
-
 =begin
   This library is provided without warranty under the MIT license
-  Created by Jacob Davis <jacob@1forge.com>
+  Created by Dustin Tinney <dustin@testdouble.com>
 =end
 
 class ForexDataClient
@@ -11,30 +8,21 @@ class ForexDataClient
     @api_key = api_key
   end
 
-  def fetch(api_call)
-    one_forge_uri = URI("https://forex.1forge.com/1.0.2/" + api_call + "&api_key=" + @api_key)
-    JSON.parse(Net::HTTP.get(one_forge_uri))
-  end
-
-  def quota()
-    self.fetch('quota?cache=false')
-  end
-
-  def getSymbols()
-    self.fetch('symbols?cache=false')
-  end
-
   def getQuotes(symbols)
-    return 111.11
-    # self.fetch('quotes?cache=false&pairs=' + symbols.join(','))
+    rates = {}
+    symbols.map do |symbol|
+      rates[symbol] = rate
+    end
+    return rates
   end
 
   def convert(from, to, quantity)
-    return quantity * 111.1
-    # self.fetch('convert?cache=false&from=' + from + '&to=' + to + '&quantity=' + quantity.to_s)
+    return quantity * rate
   end
 
-  def getMarketStatus()
-    self.fetch('market_status?cache=false')
+  private
+
+  def rate
+    rand(90.1..120.2)
   end
 end
