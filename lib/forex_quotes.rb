@@ -11,19 +11,19 @@ class ForexDataClient
   def get_quotes(symbols)
     rates = {}
     symbols.map do |symbol|
-      rates[symbol] = rate(symbol)
+      rates[symbol] = symbol.start_with?(symbol[3..]) ? 1 : rate(symbol)
     end
     return rates
   end
 
   def convert(from, to, quantity)
-    return quantity * rate(to)
+    quantity * (to == from ? 1 : rate(to))
   end
 
   private
 
   def rate(type)
     start = type[-1].ord
-    rand(start..(start+1.5))
+    rand(start..(start+0.5))
   end
 end
