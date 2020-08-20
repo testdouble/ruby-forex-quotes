@@ -8,22 +8,15 @@ class ForexDataClient
     @api_key = api_key
   end
 
-  def get_quotes(symbols)
-    rates = {}
-    symbols.map do |symbol|
-      rates[symbol] = symbol.start_with?(symbol[3..]) ? 1 : rate(symbol)
-    end
-    return rates
+  def get_rate(to:, from:)
+    return 1 if to == from
+
+    sleep(rand(0.9))
+    start = to[-1].ord
+    rand(start..(start+0.2))
   end
 
-  def convert(from, to, quantity)
-    quantity * (to == from ? 1 : rate(to))
-  end
-
-  private
-
-  def rate(type)
-    start = type[-1].ord
-    rand(start..(start+0.5))
+  def convert(to:, from:, amount:)
+    amount * get_rate(to: to, from: from)
   end
 end
