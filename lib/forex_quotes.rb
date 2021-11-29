@@ -3,20 +3,36 @@
   Created by Dustin Tinney <dustin@testdouble.com>
 =end
 
+require_relative 'exchange_service'
+
+class ExchangeServiceDownError < StandardError; end
+
 class ForexDataClient
   def initialize(api_key)
     @api_key = api_key
   end
 
   def get_rate(to:, from:)
-    return 1 if to == from
-
-    sleep(rand(0.9))
-    start = to[-1].ord
-    rand(start..(start+0.2))
+    begin
+      rate = to == from ? 1 : exchange_rate(to, from)
+      { to.to_sym => rate}
+    rescue
+      raise ExchangeServiceDownError.new("Exchange Service is offline.")
+    end
   end
 
   def convert(to:, from:, amount:)
-    amount * get_rate(to: to, from: from)
+    begin
+      total = amount * exchange_rate(to, from)
+      { to.to_sym => total}
+    rescue
+      raise ExchangeServiceDownError.new("Exchange Service is offline.")
+    end
+  end
+
+  private
+
+  def exchange_rate(to, from)
+    ExchangeService.get_rate(to, from)
   end
 end

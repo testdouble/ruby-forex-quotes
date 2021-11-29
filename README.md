@@ -19,7 +19,7 @@ ruby-forex-quotes is a Ruby Library for fetching realtime forex quotes
 
 ## Installation
 ```
-gem 'forex_quotes', github: 'testdouble/ruby-forex-quotes'
+gem 'forex_quotes', github: 'testdouble/ruby-forex-quotes', branch: 'main'
 ```
 
 ## Usage
@@ -33,11 +33,13 @@ client = ForexDataClient.new('YOUR_API_KEY')
 ### Get the rate to convert from one currency to another
 ```ruby
 client.get_rate(from: 'USD', to: 'JPY')
+# { :JPY => 1049 }
 ```
 
 ### Convert a specific amount from cents to yen.
 ```ruby
 client.convert(from: 'USD', to: 'JPY', amount: 100)
+# { :JPY => 14900 }
 ```
 
 ## License and Terms
