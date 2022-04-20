@@ -5,7 +5,7 @@
 
 require 'forex_quotes'
 
-client = ForexDataClient.new('vJHZqgJf7V3tvd7BA3MGThaB3NqVX7FD')
+client = ForexDataClient.new('vJHZqgJf7V3t')
 
-p client.getQuotes(["EURUSD", "GBPJPY"])
-p client.convert('EUR', 'USD', 100)
+puts client.get_rate(from: 'USD', to: 'JPY')
+puts client.convert(from: 'USD', to: 'JPY', amount: 100)
