@@ -14,8 +14,6 @@ ruby-forex-quotes is a Ruby Library for fetching realtime forex quotes
 - [Support / Contact](#support-and-contact)
 - [License / Terms](#license-and-terms)
 
-## Requirements
-* An API key which you can obtain for free at http://1forge.com/forex-data-api
 
 ## Installation
 ```
