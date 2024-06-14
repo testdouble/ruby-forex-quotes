@@ -7,15 +7,15 @@ ruby-forex-quotes is a Ruby Library for fetching realtime forex quotes
 - [Requirements](#requirements)
 - [Installation](#installation)
 - [Usage](#usage)
-    - [List of Symbols available](#get-the-list-of-available-symbols)
-    - [Get quotes for specific symbols](#get-quotes-for-specified-symbols)
-    - [Convert from one currency to another](#convert-from-one-currency-to-another)
+  - [List of Symbols available](#get-the-list-of-available-symbols)
+  - [Get quotes for specific symbols](#get-quotes-for-specified-symbols)
+  - [Convert from one currency to another](#convert-from-one-currency-to-another)
 - [Contributing](#contributing)
 - [Support / Contact](#support-and-contact)
 - [License / Terms](#license-and-terms)
 
-
 ## Installation
+
 ```
 gem 'forex_quotes', github: 'testdouble/ruby-forex-quotes', branch: 'main'
 ```
@@ -23,22 +23,25 @@ gem 'forex_quotes', github: 'testdouble/ruby-forex-quotes', branch: 'main'
 ## Usage
 
 ### Instantiate the client
+
 ```ruby
-# You can get an API key for free at 1forge.com
 client = ForexDataClient.new('YOUR_API_KEY')
 ```
 
 ### Get the rate to convert from one currency to another
+
 ```ruby
 client.get_rate(from: 'USD', to: 'JPY')
-# { :JPY => 1049 }
+# { :JPY => 1049.31 }
 ```
 
 ### Convert a specific amount from cents to yen.
+
 ```ruby
 client.convert(from: 'USD', to: 'JPY', amount: 100)
-# { :JPY => 14900 }
+# { :JPY => 14900.45 }
 ```
 
 ## License and Terms
+
 This library is provided without warranty under the MIT license.

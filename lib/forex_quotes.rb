@@ -14,7 +14,7 @@ class ForexDataClient
 
   def get_rate(to:, from:)
     begin
-      rate = to == from ? 1 : exchange_rate(to, from)
+      rate = exchange_rate(to, from)
       { to.to_sym => rate}
     rescue
       raise ExchangeServiceDownError.new("Exchange Service is offline.")
@@ -33,6 +33,7 @@ class ForexDataClient
   private
 
   def exchange_rate(to, from)
+    return 1 if to == from
     ExchangeService.get_rate(to, from)
   end
 end
