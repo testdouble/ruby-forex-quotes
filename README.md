@@ -28,7 +28,7 @@ gem 'forex_quotes', github: 'testdouble/ruby-forex-quotes', branch: 'main'
 client = ForexDataClient.new('YOUR_API_KEY')
 ```
 
-### Get the rate to convert from one currency to another
+### Get the rate to convert from one currency to another.  Note this expects cents not dollars
 
 ```ruby
 client.get_rate(from: 'USD', to: 'JPY')
